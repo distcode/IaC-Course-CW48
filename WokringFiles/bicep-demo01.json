@@ -1,0 +1,82 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.49.2.45890",
+      "templateHash": "2652126539266532818"
+    }
+  },
+  "parameters": {
+    "iacLocation": {
+      "type": "string",
+      "defaultValue": "Austria East",
+      "allowedValues": [
+        "North Europe",
+        "West Europe",
+        "Austria East",
+        "Germany West Central"
+      ]
+    },
+    "Prefix": {
+      "type": "string",
+      "defaultValue": "iac",
+      "minLength": 2,
+      "maxLength": 4,
+      "metadata": {
+        "description": "Specify a prefix for all resource names."
+      }
+    },
+    "IpAddresses": {
+      "type": "array"
+    },
+    "Config": {
+      "type": "object",
+      "defaultValue": {
+        "kind": "StandardV2",
+        "SKU": "Standard_LRS"
+      }
+    }
+  },
+  "variables": {
+    "VMName": "[format('{0}-VM-DC1', parameters('Prefix'))]",
+    "VMSize": "Standard_B4s_v2"
+  },
+  "resources": {},
+  "outputs": {
+    "Location": {
+      "type": "string",
+      "value": "[parameters('iacLocation')]"
+    },
+    "VMName": {
+      "type": "string",
+      "value": "[variables('VMName')]"
+    },
+    "VMSize": {
+      "type": "string",
+      "value": "[variables('VMSize')]"
+    },
+    "Prefix": {
+      "type": "string",
+      "value": "[parameters('Prefix')]"
+    },
+    "IpAddresses": {
+      "type": "array",
+      "value": "[parameters('IpAddresses')]"
+    },
+    "ConifgKind": {
+      "type": "string",
+      "value": "[parameters('Config').Kind]"
+    },
+    "ConfigSKU": {
+      "type": "string",
+      "value": "[parameters('Config').SKU]"
+    },
+    "Config": {
+      "type": "object",
+      "value": "[parameters('Config')]"
+    }
+  }
+}

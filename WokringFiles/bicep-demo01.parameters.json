@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "iacLocation": {
+      "value": "Austria West"
+    },
+    "Prefix": {
+      "value": "cw48"
+    },
+    "IpAddresses": {
+      "value": []
+    },
+    "Config": {
+      "value": {
+        "kind": "StandardV5",
+        "SKU": "Standard_XYZ"
+      }
+    }
+  }
+}
